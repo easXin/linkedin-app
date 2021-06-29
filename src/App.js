@@ -5,6 +5,13 @@ function App() {
   return (
     <div className="app">
       <h1>Linkedin app</h1>
+
+      {/* Header */}
+
+      {/* Body */}
+        {/* Sidebar */}
+        {/* Feed */}
+        {/* Widgets */}
     </div>
   );
 }
