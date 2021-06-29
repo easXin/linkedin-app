@@ -35,7 +35,7 @@ function Header() {
                 <HeaderOption Icon={BusinessCenterIcon} title="Jobs" />
                 <HeaderOption Icon={ChatIcon} title="Messaging" />
                 <HeaderOption Icon={NotificationsIcon} title="Notification" />
-                <HeaderOption avatar={profileUrl} title="me" />
+                <HeaderOption avatar={profileUrl} title="Me" drop={true} />
             </div>
         </div>
     )

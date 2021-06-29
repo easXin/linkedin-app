@@ -14,8 +14,24 @@
 .headerOption__title {
   font-size: 12px;
   font-weight: 400;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
 }
-
+.btn-primary {
+  background-color: #fff !important;
+  color: gray !important;
+  font-size: 12px !important;
+  outline: none !important;
+  border: none !important;
+  background: none !important;
+}
+.btn-primary.dropdown-toggle:focus {
+  box-shadow: none !important;
+}
+.dropdown {
+  margin-top: -5px;
+}
 .headerOption__icon {
   object-fit: contain;
   height: 25px !important;
