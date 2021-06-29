@@ -1,15 +1,13 @@
 import React from 'react'
 import { Avatar } from '@material-ui/core'
-import "./HeaderOption.css"
 import { Dropdown } from 'react-bootstrap';
+
+
 import 'bootstrap/dist/css/bootstrap.min.css';
+import "./HeaderOption.css"
 
 
 function HeaderOption({ Icon, title, avatar, drop }) {
-    const options = [
-        'one', 'two', 'three'
-    ];
-    const defaultOption = options[0];
     return (
         <div className="headerOption">
             {/* Icon */}
