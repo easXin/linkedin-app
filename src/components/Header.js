@@ -9,14 +9,17 @@ import NotificationsIcon from '@material-ui/icons/Notifications';
 import HeaderOption from './HeaderOption';
 import "./Header.css"
 
+// only use these variable one time 
+const profileUrl = "https://media-exp1.licdn.com/dms/image/C5603AQEWrwE4v4FqOw/profile-displayphoto-shrink_100_100/0/1559254436863?e=1630540800&v=beta&t=84rynyes4FljmWkbnAulGHmlomNZf8tqKc5Lscrnd2E";
+const linkedinLogoUrl = "https://image.flaticon.com/icons/png/512/174/174857.png"
+
 function Header() {
-    const profileUrl = "https://media-exp1.licdn.com/dms/image/C5603AQEWrwE4v4FqOw/profile-displayphoto-shrink_100_100/0/1559254436863?e=1630540800&v=beta&t=84rynyes4FljmWkbnAulGHmlomNZf8tqKc5Lscrnd2E";
+
     return (
         <div className="header">
-
             <div className="header__left">
                 {/* image */}
-                <img src="https://image.flaticon.com/icons/png/512/174/174857.png"
+                <img src={linkedinLogoUrl}
                     alt="Linkedin Logo" />
 
                 {/* search bar */}
@@ -35,7 +38,7 @@ function Header() {
                 <HeaderOption Icon={BusinessCenterIcon} title="Jobs" />
                 <HeaderOption Icon={ChatIcon} title="Messaging" />
                 <HeaderOption Icon={NotificationsIcon} title="Notification" />
-                <HeaderOption avatar={profileUrl} title="Me" drop={true} />
+                <HeaderOption avatar={profileUrl} title="Me" dropdown={true} />
             </div>
         </div>
     )

@@ -7,7 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "./HeaderOption.css"
 
 
-function HeaderOption({ Icon, title, avatar, drop }) {
+function HeaderOption({ Icon, title, avatar, dropdown }) {
     return (
         <div className="headerOption">
             {/* Icon */}
@@ -19,17 +19,18 @@ function HeaderOption({ Icon, title, avatar, drop }) {
                 <Avatar className="headerOption__icon" src={avatar} />
             }
             {/* Title */}
-            {drop ?
+            {dropdown ?
                 <div className="headerOption__dropdown">
                     <Dropdown >
                         <Dropdown.Toggle >
                             {title}
                         </Dropdown.Toggle>
-
+                        {/* comeback to here to turn following thing into multilevel dropdown menu */}
                         <Dropdown.Menu>
-                            <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-                            <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-                            <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+                            <Dropdown.Item href="#/action-1">About Me</Dropdown.Item>
+                            <Dropdown.Item href="#/action-1">Account</Dropdown.Item>
+                            <Dropdown.Item href="#/action-2">Manage</Dropdown.Item>
+                            <Dropdown.Item href="#/action-3">Sign out</Dropdown.Item>
                         </Dropdown.Menu>
                     </Dropdown>
                 </div>
