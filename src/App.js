@@ -1,6 +1,10 @@
 import React from 'react';
 
-import Header from './components/Header.js';
+import Header from './components/Header';
+import Sidebar from "./components/Sidebar";
+import Feed from "./components/Feed";
+import Widgets from "./components/Widgets";
+
 import './App.css';
 
 function App() {
@@ -9,9 +13,15 @@ function App() {
       {/* Header */}
       <Header />
       {/* Body */}
-      {/* Sidebar */}
-      {/* Feed */}
-      {/* Widgets */}
+      <div className="app__body">
+        {/* Sidebar */}
+        <Sidebar />
+        {/* Feed */}
+        <Feed />
+        {/* Widgets */}
+        <Widgets />
+      </div>
+
     </div>
   );
 }

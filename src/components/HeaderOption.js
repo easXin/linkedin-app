@@ -16,7 +16,7 @@ function HeaderOption({ Icon, title, avatar, dropdown }) {
 
             {/* avatar */}
             {avatar &&
-                <Avatar className="headerOption__icon" src={avatar} />
+                <Avatar className="headerOption__icon" src={avatar} alt="personal profile image" />
             }
             {/* Title */}
             {dropdown ?
