@@ -1,4 +1,50 @@
 .feed {
   flex: 0.6;
   border: 1px solid red;
+  /* top bottom    left right*/
+  margin: 0 20px;
+}
+
+.feed__inputContainer {
+  /* display: flex;
+  justify-content: space-evenly; */
+  background-color: #fff;
+  padding: 10px;
+  padding-bottom: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.feed__input {
+  border: 1px solid lightgray;
+  border-radius: 25px;
+  display: flex;
+  padding: 10px;
+  color: gray;
+  padding-left: 15px;
+  /* width: 100%; */
+}
+
+.feed__input > form {
+  display: flex;
+  width: 100%;
+}
+
+.feed__input > form > input {
+  border: none;
+  flex: 1;
+  margin-left: 10px;
+  /* remove outline of input box */
+  outline-width: 0;
+  font-weight: 600;
+}
+
+/*  trigger submit button by enter key */
+.feed__input > form > button {
+  display: none;
+}
+
+.feed__inputOptions {
+  display: flex;
+  justify-content: space-evenly;
 }
