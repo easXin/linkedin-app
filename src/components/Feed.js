@@ -1,26 +1,63 @@
-import React, { useState} from 'react'
+import React, { useState, useEffect } from 'react'
+import firebase from "firebase"
+
 import CreateIcon from "@material-ui/icons/Create"
 import ImageIcon from '@material-ui/icons/Image';
 import YouTubeIcon from '@material-ui/icons/YouTube';
 import DateRangeIcon from '@material-ui/icons/DateRange';
 import CalendarViewDayIcon from '@material-ui/icons/CalendarViewDay';
+import { db } from "../firebase"
 import InputOptions from './InputOptions'
-
 import "./Feed.css"
 import Post from './Post.js';
 
 const profileUrl = "https://media-exp1.licdn.com/dms/image/C5603AQEWrwE4v4FqOw/profile-displayphoto-shrink_100_100/0/1559254436863?e=1630540800&v=beta&t=84rynyes4FljmWkbnAulGHmlomNZf8tqKc5Lscrnd2E";
 
 function Feed() {
-  
+    // comeback here, after finish linkedin api
+    const [posts, setPosts] = useState([])
+    const [input, setInput] = useState('')
+
+    const sendPost = (e) => {
+        e.preventDefault();
+
+        db.collection("posts").add({
+            name: "Eric Wang",
+            description: "Software Engineer",
+            message: input,
+            photoUrl: profileUrl,
+            // system time stamo
+            timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+        })
+    }
+    const handleInputChange = (e) => {
+        setInput(e.target.value)
+    }
+
+    useEffect(() => {
+        // snapshot : connect to real time database of posts collection 
+        db.collection("posts").orderBy('timestamp', 'desc').onSnapshot(snapshot => (
+            setPosts(snapshot.docs.map(doc => (
+                {
+                    id: doc.id,
+                    // grad data
+                    data: doc.data(),
+                }
+            )))
+        ))
+    }, [])
+
     return (
         <div className="feed">
             <div className="feed__inputContainer">
                 <div className="feed__input">
                     <CreateIcon />
                     <form>
-                        <input type="text" />
-                        <button type="submit">Send</button>
+                        <input type="text"
+                            value={input}
+                            onChange={handleInputChange}
+                            placeholder="Start a post" />
+                        <button type="submit" onClick={sendPost}>Send</button>
                     </form>
                 </div>
                 <div className="feed__inputOptions">
@@ -38,11 +75,17 @@ function Feed() {
 
             {/* Posts */}
             <div className="feed__posts">
-                <Post name="Eric Wang"
-                    description="software engineer"
-                    message="yolo!!"
-                    photoUrl={profileUrl}
-                />
+                {/* use uuid for the key */}
+                {posts.map(({ id, data: { name, description, message, photoUrl } }) => (
+                    <Post
+                        key={id}
+                        name={name}
+                        description={description}
+                        message={message}
+                        photoUrl={photoUrl}
+                    />
+                ))}
+
             </div>
 
         </div>

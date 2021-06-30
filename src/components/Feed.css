@@ -1,6 +1,6 @@
 .feed {
   flex: 0.6;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   /* top bottom    left right*/
   margin: 0 20px;
 }
