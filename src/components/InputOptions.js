@@ -1,4 +1,5 @@
 import React from 'react'
+
 import "./InputOptions.css"
 
 function InputOptions({ Icon, title, color }) {

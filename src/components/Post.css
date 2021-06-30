@@ -1,0 +1,51 @@
+.post {
+  background-color: white;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+
+.post__header {
+  display: flex;
+  margin-bottom: 5px;
+}
+
+.post__info {
+  margin-left: 10px;
+}
+
+.post__info > h2 {
+  font-size: 14px;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.9);
+}
+
+.post__info > h2:hover {
+  color: #0a66c2;
+  text-decoration: underline;
+}
+
+.post__info > p {
+  font-size: 12px;
+  font-weight: 400;
+  color: gray;
+}
+
+.post__body {
+  /* handle edge case, text over flow to the x axis   */
+  overflow-wrap: anywhere;
+  border-bottom: 0.1px solid lightgray;
+}
+
+.post__body > p {
+  font-size: 14px;
+  color: rgba(3, 2, 2, 0.9);
+}
+
+.post__buttons {
+  display: flex;
+}
+
+.inputOptions {
+  margin-right: 20px;
+}
