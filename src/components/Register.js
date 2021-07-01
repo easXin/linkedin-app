@@ -13,21 +13,15 @@ function Register() {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [profilePic, setProfilePic] = useState("")
+
     const history = useHistory();
     // data layer out
     const dispatch = useDispatch()
 
     const register = async (e) => {
         e.preventDefault()
-        // console.log("xx")
-        // if (!name) {
-        //     return alert("Please enter a full name");
-        // };
-        // create on the backend 
         await auth.createUserWithEmailAndPassword(email, password)
-            // if works
             .then(userAuth => {
-                console.log(userAuth)
                 //go inside  user in firebase if auth is valid 
                 userAuth.user.updateProfile({
                     // firebase name : local name
@@ -36,19 +30,18 @@ function Register() {
                 })
                     .then(() => {
                         // push user into redux store
-                        console.log(userAuth)
                         dispatch(login({
                             email: userAuth.user.email,
                             uid: userAuth.user.uid,
-                            displayName: name,
-                            photoUrl: profilePic
+                            displayName: userAuth.user.displayName,
+                            photoUrl: userAuth.user.photoURL
                         }))
 
                     })
             })
             .catch(error =>
                 alert(error.message));
-        return true;
+        history.push("/")
     };
     return (
         <div className="register">

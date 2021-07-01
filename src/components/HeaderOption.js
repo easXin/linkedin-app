@@ -1,13 +1,17 @@
 import React from 'react'
 import { Avatar } from '@material-ui/core'
 import { Dropdown } from 'react-bootstrap';
-
-
+import { useSelector, useDispatch } from 'react-redux';
+import { selectUser } from "../features/userSlice";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./HeaderOption.css"
 
 
-function HeaderOption({ Icon, title, avatar, dropdown }) {
+function HeaderOption({ Icon, title, avatar, dropdown, onClick }) {
+    // pull out user info
+    const user = useSelector(selectUser);
+    const dispatch = useDispatch()
+    var i = true;
     return (
         <div className="headerOption">
             {/* Icon */}
@@ -16,21 +20,24 @@ function HeaderOption({ Icon, title, avatar, dropdown }) {
 
             {/* avatar */}
             {avatar &&
-                <Avatar className="headerOption__icon" src={avatar} alt="personal profile image" />
+                <Avatar className="headerOption__icon" src={user?.photoUrl} >
+                    {user?.email[0]}
+                </Avatar>
             }
             {/* Title */}
             {dropdown ?
                 <div className="headerOption__dropdown">
                     <Dropdown >
-                        <Dropdown.Toggle >
-                            {title}
-                        </Dropdown.Toggle>
-                        {/* comeback to here to turn following thing into multilevel dropdown menu */}
+                        {title &&
+                            <Dropdown.Toggle >
+                                {user?.displayName}
+                            </Dropdown.Toggle>
+                        }                        {/* comeback to here to turn following thing into multilevel dropdown menu */}
                         <Dropdown.Menu>
-                            <Dropdown.Item href="#/action-1">About Me</Dropdown.Item>
-                            <Dropdown.Item href="#/action-1">Account</Dropdown.Item>
-                            <Dropdown.Item href="#/action-2">Manage</Dropdown.Item>
-                            <Dropdown.Item href="#/action-3">Sign out</Dropdown.Item>
+                            <Dropdown.Item href="#">About Me</Dropdown.Item>
+                            <Dropdown.Item href="#">Account</Dropdown.Item>
+                            <Dropdown.Item href="#">Manage</Dropdown.Item>
+                            <Dropdown.Item onClick={onClick}>Sign out</Dropdown.Item>
                         </Dropdown.Menu>
                     </Dropdown>
                 </div>

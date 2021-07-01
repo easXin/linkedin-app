@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { auth } from "../firebase";
+import { login } from "../features/userSlice.js"
 import "./Login.css"
 
 function Login() {
@@ -10,23 +12,22 @@ function Login() {
     const [errorEmail, setErrorEmail] = useState("")
     const [errorPassword, setErrorPassword] = useState("")
 
+    const dispatch = useDispatch()
     const history = useHistory();
+
     const loginToApp = (e) => {
         e.preventDefault();
-        if (!email) {
-            setErrorEmail("Please enter a valid username")
-        }
-        if (!password) {
-            setErrorPassword("Please enter a password.")
-        }
-        auth
-            .signInWithEmailAndPassword(email, password)
-            .then((auth) => {
-                history.push("/");
+        auth.signInWithEmailAndPassword(email, password)
+            .then(userAuth => {
+                dispatch(login({
+                    email: userAuth.user.email,
+                    uid: userAuth.user.uid,
+                    displayName: userAuth.user.displayName,
+                    profileUrl: userAuth.user.photoURL,
+                }))
             })
-            .catch((error) => {
-                alert(error.message);
-            });
+            .catch(error => alert(error));
+        history.push("/")
         return true;
     };
 
