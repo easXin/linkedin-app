@@ -21,7 +21,7 @@
 .header__left > img {
   object-fit: contain;
   height: 40px;
-  margin-left: 10px;
+  margin-left: -80px;
   margin-right: 10px;
 }
 
@@ -40,6 +40,8 @@
   outline: none;
   border: none;
   background: none;
+  color: rgb(238, 241, 245);
+  width: 260px;
 }
 
 .header__right {

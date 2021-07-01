@@ -55,10 +55,12 @@ function Feed() {
         <div className="feed">
             <div className="feed__inputContainer">
                 <div className="feed__info">
-                    <Avatar src={profileUrl}
+                    <Avatar src={user?.photoUrl}
                         alt="personal profile image"
-                        className="feed__icon" />
-
+                        className="feed__icon" >
+                        {/* if for some resone, user's profile is down, then set the first letter of email as personal avatar*/}
+                        {user?.email[0]}
+                    </Avatar>
                     <div className="feed__input">
                         <CreateIcon />
                         <form>
@@ -96,7 +98,9 @@ function Feed() {
                             message={message}
                             photoUrl={photoUrl}
                         />
+
                     ))}
+
                 </FlipMove>
             </div>
 

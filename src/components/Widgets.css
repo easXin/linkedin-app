@@ -38,7 +38,7 @@
   font-size: 14px;
   font-weight: 600;
   padding: 5px;
-  color: rgba(110, 46, 46, 0.9);
+  color: rgb(171, 171, 171);
   border-radius: 10px;
 }
 .widget__body > p > span:hover {

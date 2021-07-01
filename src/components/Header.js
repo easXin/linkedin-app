@@ -44,7 +44,7 @@ function Header() {
                     {/* search icon */}
                     <SearchIcon />
                     {/* input filed */}
-                    <input type="text" placeholder="Search" />
+                    <input type="text" placeholder="Search for jobs, people, posts..." />
                 </div>
             </div>
 
