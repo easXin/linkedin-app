@@ -1,23 +1,25 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './Widgets.css';
 import InfoIcon from '@material-ui/icons/Info';
-import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
-
+import NewsArticle from "./NewsArticle"
+import { v4 as uuidv4 } from 'uuid';
+const newApi = "https://newsapi.org/v2/top-headlines?country=us&apiKey=1a243c6d77bb49a68e623411cb27068f"
 function Widgets() {
-    // functional jsx
-    
-    const newsArticle = (heading, subtitle) => (
-        <div className="widget__article">
-            <div className="widgets__articleLeft">
-                <FiberManualRecordIcon />
-            </div>
-
-            <div className="widgets__articleRight">
-                <h4>{heading}</h4>
-                <p>{subtitle}</p>
-            </div>
-        </div>
-    );
+    const [headLine, setHeadline] = useState([])
+    useEffect(() => {
+        const getNewsData = async () =>
+            fetch(newApi)
+                .then(res => res.json())
+                .then(data => {
+                    const news = data.articles.filter((news) => news.author !== "")
+                        .map(news => ({
+                            heading: news.title,
+                            subtitle: news.author
+                        }))
+                    setHeadline(news);
+                })
+        getNewsData();
+    }, [])
 
     return (
         <div className="widgets">
@@ -25,9 +27,12 @@ function Widgets() {
                 <h2>LinkedIn News</h2>
                 <InfoIcon />
             </div>
+            <div className="widget__body">
+                {
+                    headLine.map(news => <NewsArticle key={uuidv4()} news={news} />)
+                }
+            </div>
 
-            {newsArticle("Coronavirus: Lagos updates", "Tops news - 324 readers")}
-            {newsArticle("Bitcoin hits new high", "Tops news - 2,324 readers")}
         </div>
     )
 }
