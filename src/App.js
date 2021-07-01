@@ -14,40 +14,41 @@ function App() {
   // grab selector
   const user = useSelector(selectUser)
   return (
-    
-      <Router>
-        <div className="app">
-          <Switch>
-            {/* if user is not log in, take him to login page */}
-            {!user?(
-              <Route path="/login">
-                <Login/>
-              </Route>
-              )  
-              :
-              (
-                <Route path="/">
-                  <>
-                    {/* Header */}
-                    <Header />
-                    <div className="app__body">
-                      {/* Sidebar */}
-                      <Sidebar />
-                      {/* Feed */}
-                      <Feed />
-                      {/* Widgets */}
-                      <Widgets />
-                    </div>
-                  </>
-                </Route>
-              )
-            }
-            <Route path="/register">
-              <Register/>
-            </Route>
-          </Switch>
-        </div>
-      </Router>
+
+    <Router>
+      <div className="app">
+        <Switch>
+          <Route path="/register">
+            <Register />
+          </Route>
+          {/* if user is not log in, take him to login page */}
+          {/* {!user ? ( */}
+          <Route path="/login">
+            <Login />
+          </Route>
+          {/* ) */}
+          {/* :
+            ( */}
+          <Route path="/">
+
+            {/* Header */}
+            <Header />
+            <div className="app__body">
+              {/* Sidebar */}
+              <Sidebar />
+              {/* Feed */}
+              <Feed />
+              {/* Widgets */}
+              <Widgets />
+            </div>
+
+          </Route>
+          {/* )
+          } */}
+
+        </Switch>
+      </div>
+    </Router>
   );
 }
 

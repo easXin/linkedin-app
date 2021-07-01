@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
-// import { auth } from "../firebase"
-// import { login } from '../features/userSlice.js'
+import { Link, useHistory } from "react-router-dom";
+import { auth } from "../firebase";
 import "./Login.css"
 
 function Login() {
@@ -10,8 +10,7 @@ function Login() {
     const [errorEmail, setErrorEmail] = useState("")
     const [errorPassword, setErrorPassword] = useState("")
 
-    const dispatch = useDispatch()
-
+    const history = useHistory();
     const loginToApp = (e) => {
         e.preventDefault();
         if (!email) {
@@ -20,30 +19,17 @@ function Login() {
         if (!password) {
             setErrorPassword("Please enter a password.")
         }
-    }
-    // const register = () => {
-    //     // name
-    //     if (!email) {
-    //         setErrorEmail("Please enter a valid username")
-    //     }
-    //     auth.createUserWithEmailAndPassword(email,password)
-    //     .then((userAuth) =>{
-    //         userAuth.user.updateProfile({
-    //             displayName:name,
-    //             photoURL: profilePic,
-    //         })
-    //     }).then(() =>{
-    //         // push user into redux store
-    //         dispatch(login({
-    //             email: userAuth.user.email,
-    //             uid: userAuth.user.uid,
-    //             displayName:name,
-    //             photoUrl: profilePic
-    //         }))
-    //     }).catch((err)=>{
-    //         alert(err)
-    //     })
-    // }
+        auth
+            .signInWithEmailAndPassword(email, password)
+            .then((auth) => {
+                history.push("/");
+            })
+            .catch((error) => {
+                alert(error.message);
+            });
+        return true;
+    };
+
     const removeErrEmail = () => {
         if (email)
             setErrorEmail("")
@@ -79,7 +65,9 @@ function Login() {
 
             <p>
                 New to LinkedIn?
-                <span className="login__register"> Join now</span>
+                <span className="login__register">
+                    <Link to="/register">Join now</Link>
+                </span>
             </p>
         </div>
     )
