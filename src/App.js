@@ -19,7 +19,6 @@ function App() {
   useEffect(() => {
     // listen to auth change
     auth.onAuthStateChanged(userAuth => {
-      console.log(userAuth)
       if (userAuth) {
         // user is logged in
         dispatch(login({

@@ -8,6 +8,8 @@ import DateRangeIcon from '@material-ui/icons/DateRange';
 import CalendarViewDayIcon from '@material-ui/icons/CalendarViewDay';
 import { db } from "../firebase"
 import InputOptions from './InputOptions'
+import { selectUser } from "../features/userSlice";
+import { useSelector } from 'react-redux';
 import "./Feed.css"
 import Post from './Post.js';
 
@@ -15,6 +17,7 @@ const profileUrl = "https://media-exp1.licdn.com/dms/image/C5603AQEWrwE4v4FqOw/p
 
 function Feed() {
     // comeback here, after finish linkedin api
+    const user = useSelector(selectUser);
     const [posts, setPosts] = useState([])
     const [input, setInput] = useState('')
 
@@ -22,10 +25,10 @@ function Feed() {
         e.preventDefault();
 
         db.collection("posts").add({
-            name: "Eric Wang",
-            description: "Software Engineer",
+            name: user.displayName,
+            description: user.email,
             message: input,
-            photoUrl: profileUrl,
+            photoUrl: user.photoUrl || "",
             // system time stamo
             timestamp: firebase.firestore.FieldValue.serverTimestamp(),
         })
