@@ -13,8 +13,8 @@ function Widgets() {
                 .then(data => {
                     const news = data.articles.filter((news) => news.author !== "")
                         .map(news => ({
-                            heading: news.title,
-                            subtitle: news.author
+                            title: news.title,
+                            author: news.author
                         }))
                     setHeadline(news);
                 })

@@ -10,8 +10,8 @@ function NewsArticle({ news }) {
             </div>
 
             <div className="widgets__articleRight">
-                <h4>{news.heading}</h4>
-                <p>{news.subtitle}</p>
+                <h4>{news.title}</h4>
+                <p>{news.author}</p>
             </div>
         </div>
     )
