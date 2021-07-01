@@ -12,6 +12,7 @@ import { selectUser } from "../features/userSlice";
 import { useSelector } from 'react-redux';
 import "./Feed.css"
 import Post from './Post.js';
+import FlipMove from 'react-flip-move';
 
 const profileUrl = "https://media-exp1.licdn.com/dms/image/C5603AQEWrwE4v4FqOw/profile-displayphoto-shrink_100_100/0/1559254436863?e=1630540800&v=beta&t=84rynyes4FljmWkbnAulGHmlomNZf8tqKc5Lscrnd2E";
 
@@ -78,17 +79,18 @@ function Feed() {
 
             {/* Posts */}
             <div className="feed__posts">
-                {/* use uuid for the key */}
-                {posts.map(({ id, data: { name, description, message, photoUrl } }) => (
-                    <Post
-                        key={id}
-                        name={name}
-                        description={description}
-                        message={message}
-                        photoUrl={photoUrl}
-                    />
-                ))}
-
+                {/* use uuid for the key  npm i react-flip-move*/}
+                <FlipMove>
+                    {posts.map(({ id, data: { name, description, message, photoUrl } }) => (
+                        <Post
+                            key={id}
+                            name={name}
+                            description={description}
+                            message={message}
+                            photoUrl={photoUrl}
+                        />
+                    ))}
+                </FlipMove>
             </div>
 
         </div>
