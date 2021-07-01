@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import firebase from "firebase"
-
+import { Avatar } from '@material-ui/core'
 import CreateIcon from "@material-ui/icons/Create"
 import ImageIcon from '@material-ui/icons/Image';
 import YouTubeIcon from '@material-ui/icons/YouTube';
@@ -54,16 +54,23 @@ function Feed() {
     return (
         <div className="feed">
             <div className="feed__inputContainer">
-                <div className="feed__input">
-                    <CreateIcon />
-                    <form>
-                        <input type="text"
-                            value={input}
-                            onChange={handleInputChange}
-                            placeholder="Start a post" />
-                        <button type="submit" onClick={sendPost}>Send</button>
-                    </form>
+                <div className="feed__info">
+                    <Avatar src={profileUrl}
+                        alt="personal profile image"
+                        className="feed__icon" />
+
+                    <div className="feed__input">
+                        <CreateIcon />
+                        <form>
+                            <input type="text"
+                                value={input}
+                                onChange={handleInputChange}
+                                placeholder="Start a post" />
+                            <button type="submit" onClick={sendPost}>Send</button>
+                        </form>
+                    </div>
                 </div>
+
                 <div className="feed__inputOptions">
                     {/* input options */}
                     <InputOptions Icon={ImageIcon}

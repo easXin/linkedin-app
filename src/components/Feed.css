@@ -22,6 +22,8 @@
   padding: 10px;
   color: gray;
   padding-left: 15px;
+  flex: 0.9;
+  height: 60px;
   /* width: 100%; */
 }
 
@@ -47,4 +49,16 @@
 .feed__inputOptions {
   display: flex;
   justify-content: space-evenly;
+}
+
+.feed__info {
+  display: flex;
+}
+
+.feed__icon {
+  flex: 0.1;
+  object-fit: contain;
+  height: 53px !important;
+  width: 40px !important;
+  margin-right: 10px;
 }
