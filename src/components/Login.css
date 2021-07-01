@@ -1,0 +1,99 @@
+div.app {
+  background-color: #f7f7f7;
+}
+.login {
+  /* become grid container */
+  display: grid;
+  place-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  /*
+    grid-gap :  xxx   xxx        Row Column
+    grid-row-gap 
+    grid-column-gap 
+  */
+}
+.login__form {
+  padding: 35px;
+  border: 0.01px solid rgb(228, 227, 227);
+  background-color: #f7f7f7;
+  border-radius: 5px;
+}
+
+.login__form > h1 {
+  font-size: 32px;
+  font-weight: 600px;
+}
+.login__form > p {
+  font-size: 14px;
+  font-weight: 400px;
+}
+
+.login > img {
+  object-fit: contain;
+  height: 70px;
+  margin-top: 20px;
+  margin-bottom: 5px;
+  margin-right: 300px;
+}
+
+.login > form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login > form > input {
+  width: 350px;
+  height: 50px;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 400;
+  padding-right: 10px;
+  margin-bottom: 30px;
+  border-radius: 5px;
+  padding-left: 10px;
+  color: rgba(0, 0, 0, 0.9);
+  border: 0.1px solid #000;
+}
+
+.login > form > button {
+  width: 356px;
+  height: 50px;
+  font-size: large;
+  color: #ffff;
+  background-color: #0a66c2;
+  border-radius: 5px;
+  border-radius: 30px;
+  border: none; 
+}
+
+.login > form > button:hover {
+  background-color: rgb(25, 64, 109);
+  /* Animations */
+  transition-timing-function: ease-in;
+  transition: all 0.5s;
+}
+
+.login__register,
+.login__passwordReset {
+  color: #0a66c2;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.login__passwordReset {
+  margin-top: -13px;
+  margin-bottom: 12px;
+}
+.login > p {
+  margin-top: 20px;
+}
+
+.login__err {
+  margin-top: -24px;
+  font-size: 14px;
+  color: #d11124;
+}
