@@ -5,7 +5,8 @@ import { useDispatch } from 'react-redux'
 import { auth } from "../firebase";
 import { Form, Button } from "react-bootstrap"
 import { login } from '../features/userSlice'
-
+import { selectUser } from "../features/userSlice";
+import { useSelector } from 'react-redux';
 import "./Register.css"
 
 // const profileUrl = "https://media-exp1.licdn.com/dms/image/C5603AQEWrwE4v4FqOw/profile-displayphoto-shrink_100_100/0/1559254436863?e=1630540800&v=beta&t=84rynyes4FljmWkbnAulGHmlomNZf8tqKc5Lscrnd2E";
@@ -20,11 +21,14 @@ function Register() {
     // data layer out
     const dispatch = useDispatch()
 
+    const user = useSelector(selectUser);
+
     const register = async (e) => {
         e.preventDefault()
         await auth.createUserWithEmailAndPassword(email, password)
             .then(userAuth => {
                 //go inside  user in firebase if auth is valid 
+                // console.log("xxxx ->", userAuth.user.displayName)
                 userAuth.user.updateProfile({
                     // firebase name : local name
                     displayName: name,
@@ -35,15 +39,17 @@ function Register() {
                         dispatch(login({
                             email: userAuth.user.email,
                             uid: userAuth.user.uid,
-                            displayName: userAuth.user.displayName,
-                            photoUrl: userAuth.user.photoURL
+                            displayName: name,
+                            photoUrl: profilePic
                         }))
 
                     })
             })
             .catch(error =>
                 alert(error.message));
+        // console.log(">>>", user)
         history.push("/")
+
     };
     return (
         <div className="register">

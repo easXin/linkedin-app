@@ -68,7 +68,7 @@ function Login() {
             <p>
                 New to LinkedIn?
                 <span className="login__register">
-                    <Link to="/register">Join now</Link>
+                    <Link to="/register"> Join now</Link>
                 </span>
             </p>
         </div>

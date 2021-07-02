@@ -17,6 +17,7 @@ function Sidebar() {
     )
     return (
         <div className="sidebar">
+            {/* {console.log(user)} */}
             {/* sidebar top */}
             <div className="sidebar__top">
                 <img src={imageUrl} alt="avatar background" />

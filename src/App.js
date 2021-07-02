@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Header from './components/Header';
@@ -9,12 +9,13 @@ import Widgets from "./components/Widgets";
 import Login from "./components/Login"
 import Register from "./components/Register";
 import { auth } from "./firebase"
-import { login, logout } from './features/userSlice';
+import { login, logout, selectUser } from './features/userSlice';
 
 import './App.css';
 function App() {
   // grab selector
   const dispatch = useDispatch();
+  const user = useSelector(selectUser);
 
   useEffect(() => {
     // listen to auth change
@@ -32,7 +33,7 @@ function App() {
         dispatch(logout());
       }
     })
-  }, []);
+  }, [dispatch]);
   return (
 
     <Router>
@@ -41,30 +42,26 @@ function App() {
           <Route path="/register">
             <Register />
           </Route>
-          {/* if user is not log in, take him to login page */}
-          {/* {!user ? ( */}
           <Route path="/login">
             <Login />
           </Route>
-          {/* ) */}
-          {/* :
-            ( */}
-          <Route path="/">
+          {!user ?
+            <Route path="/">
+              <Login />
+            </Route> :
+            <Route path="/">
+              <Header />
+              <div className="app__body">
+                <Sidebar />
+                <Feed />
+                <Widgets />
+              </div>
+            </Route>
+          }
 
-            {/* Header */}
-            <Header />
-            <div className="app__body">
-              {/* Sidebar */}
-              <Sidebar />
-              {/* Feed */}
-              <Feed />
-              {/* Widgets */}
-              <Widgets />
-            </div>
 
-          </Route>
-          {/* )
-          } */}
+
+
 
         </Switch>
       </div>

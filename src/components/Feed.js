@@ -33,9 +33,11 @@ function Feed() {
             // system time stamo
             timestamp: firebase.firestore.FieldValue.serverTimestamp(),
         })
+        setInput("")
     }
     const handleInputChange = (e) => {
         setInput(e.target.value)
+
     }
 
     useEffect(() => {

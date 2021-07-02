@@ -115,3 +115,12 @@ feed__dropDown:focus {
   border-color: whitesmoke !important;
   box-shadow: none !important;
 }
+
+.dropdown-item:focus {
+  border-left: 2px solid darkgreen;
+}
+
+.dropdown-item:hover {
+  background-color: whitesmoke;
+  color: black;
+}
