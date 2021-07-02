@@ -1,20 +1,19 @@
 import React, { useState, useEffect } from 'react'
-import firebase from "firebase"
+import { useSelector } from 'react-redux';
 import { Avatar } from '@material-ui/core'
-import CreateIcon from "@material-ui/icons/Create"
 import ImageIcon from '@material-ui/icons/Image';
 import YouTubeIcon from '@material-ui/icons/YouTube';
 import DateRangeIcon from '@material-ui/icons/DateRange';
 import CalendarViewDayIcon from '@material-ui/icons/CalendarViewDay';
+
+import firebase from "firebase"
 import { db } from "../firebase"
 import InputOptions from './InputOptions'
 import { selectUser } from "../features/userSlice";
-import { useSelector } from 'react-redux';
-import "./Feed.css"
-import Post from './Post.js';
+import Post from "./Post";
 import FlipMove from 'react-flip-move';
 
-const profileUrl = "https://media-exp1.licdn.com/dms/image/C5603AQEWrwE4v4FqOw/profile-displayphoto-shrink_100_100/0/1559254436863?e=1630540800&v=beta&t=84rynyes4FljmWkbnAulGHmlomNZf8tqKc5Lscrnd2E";
+import "./Feed.css"
 
 function Feed() {
     // comeback here, after finish linkedin api
@@ -62,7 +61,6 @@ function Feed() {
                         {user?.email[0]}
                     </Avatar>
                     <div className="feed__input">
-                        <CreateIcon />
                         <form>
                             <input type="text"
                                 value={input}
@@ -85,7 +83,7 @@ function Feed() {
                         title="Write article" color="#f5987e" />
                 </div>
             </div>
-
+            <hr className="feed__horizontal"/> <span>Sort by: Recent</span>
             {/* Posts */}
             <div className="feed__posts">
                 {/* use uuid for the key  npm i react-flip-move*/}

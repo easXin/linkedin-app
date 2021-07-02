@@ -56,9 +56,13 @@
 }
 
 .feed__icon {
-  flex: 0.1;
+  margin-bottom: 10px;
   object-fit: contain;
-  height: 53px !important;
-  width: 40px !important;
+  height: 50px !important;
+  width: 50px !important;
   margin-right: 10px;
+}
+
+.feed__horizontal {
+  border-top: 1px solid rgb(225, 224, 221);
 }

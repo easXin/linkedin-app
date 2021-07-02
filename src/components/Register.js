@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
-import "./Register.css"
+
 import { useHistory } from "react-router-dom";
 import { useDispatch } from 'react-redux'
 import { auth } from "../firebase";
 import { Form, Button } from "react-bootstrap"
-import { login } from '../features/userSlice.js'
+import { login } from '../features/userSlice'
+
+import "./Register.css"
 
 // const profileUrl = "https://media-exp1.licdn.com/dms/image/C5603AQEWrwE4v4FqOw/profile-displayphoto-shrink_100_100/0/1559254436863?e=1630540800&v=beta&t=84rynyes4FljmWkbnAulGHmlomNZf8tqKc5Lscrnd2E";
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Avatar } from '@material-ui/core'
 import { Dropdown } from 'react-bootstrap';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { selectUser } from "../features/userSlice";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./HeaderOption.css"
@@ -10,8 +10,7 @@ import "./HeaderOption.css"
 function HeaderOption({ Icon, title, avatar, dropdown, onClick }) {
     // pull out user info
     const user = useSelector(selectUser);
-    const dispatch = useDispatch()
-    var i = true;
+
     return (
         <div className="headerOption">
             {/* Icon */}

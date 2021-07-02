@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Header from './components/Header';
@@ -8,12 +8,12 @@ import Feed from "./components/Feed";
 import Widgets from "./components/Widgets";
 import Login from "./components/Login"
 import Register from "./components/Register";
-import { auth } from "./firebase.js"
-import { login, logout, selectUser } from './features/userSlice.js';
+import { auth } from "./firebase"
+import { login, logout } from './features/userSlice';
+
 import './App.css';
 function App() {
   // grab selector
-  const user = useSelector(selectUser);
   const dispatch = useDispatch();
 
   useEffect(() => {

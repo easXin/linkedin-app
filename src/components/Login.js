@@ -3,7 +3,8 @@ import { useDispatch } from 'react-redux'
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import { auth } from "../firebase";
-import { login } from "../features/userSlice.js"
+import { login } from "../features/userSlice"
+
 import "./Login.css"
 
 function Login() {

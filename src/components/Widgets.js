@@ -1,11 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import './Widgets.css';
-import InfoIcon from '@material-ui/icons/Info';
-import NewsArticle from "./NewsArticle"
-import { v4 as uuidv4 } from 'uuid';
 import ExpandMoreSharpIcon from '@material-ui/icons/ExpandMoreSharp';
 import ExpandLessSharpIcon from '@material-ui/icons/ExpandLessSharp';
+import NewsArticle from "./NewsArticle"
+import InfoIcon from '@material-ui/icons/Info';
+import { v4 as uuidv4 } from 'uuid';
+
+import './Widgets.css';
+
+
+
+
 const newApi = "https://newsapi.org/v2/top-headlines?country=us&apiKey=1a243c6d77bb49a68e623411cb27068f"
+
 function Widgets() {
 
     const [headLines, setHeadlines] = useState([])
