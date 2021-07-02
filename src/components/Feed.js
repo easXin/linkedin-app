@@ -21,7 +21,7 @@ function Feed() {
     const user = useSelector(selectUser);
     const [posts, setPosts] = useState([])
     const [input, setInput] = useState('')
-
+    const [sortOption, setSortOption] = useState('')
     const sendPost = (e) => {
         e.preventDefault();
 
@@ -85,7 +85,7 @@ function Feed() {
                 </div>
             </div>
             <div className="feed__separationLine">
-                <hr className="feed__horizontal" /> 
+                <hr className="feed__horizontal" />
                 <span className="feed__sorts">
                     <span className="feed__sort">
                         Sort by:
@@ -96,13 +96,14 @@ function Feed() {
                         </Dropdown.Toggle>
 
                         <Dropdown.Menu>
-                            <Dropdown.Item href="#/action-1">Top</Dropdown.Item>
-                            <Dropdown.Item href="#/action-2">Recent</Dropdown.Item>
+                            <Dropdown.Item onClick={e => setSortOption("top")}>Top</Dropdown.Item>
+                            <Dropdown.Item onClick={e => setSortOption("recent")}>Recent</Dropdown.Item>
                         </Dropdown.Menu>
                     </Dropdown>
 
                 </span>
             </div>
+
 
             {/* Posts */}
             <div className="feed__posts">
