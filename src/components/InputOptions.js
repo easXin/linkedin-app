@@ -5,7 +5,7 @@ import "./InputOptions.css"
 function InputOptions({ Icon, title, color }) {
     return (
         <div className="inputOptions">
-            <Icon style={{ color: color }} />
+            <Icon className="inputOptions__icon" style={{ color: color }} />
             <h4>{title}</h4>
         </div>
     )
