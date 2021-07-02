@@ -19,7 +19,7 @@ const Post = forwardRef(({ name, description, message, photoUrl }, ref) => {
                     <h2>{name}</h2>
                     <p>{description}</p>
                 </div>
-                <MoreHorizSharpIcon className="post__threeDot" />
+                {/* <MoreHorizSharpIcon className="post__threeDot" /> */}
             </div>
 
             <div className="post__body">

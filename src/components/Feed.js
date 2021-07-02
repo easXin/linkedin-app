@@ -5,7 +5,8 @@ import ImageIcon from '@material-ui/icons/Image';
 import YouTubeIcon from '@material-ui/icons/YouTube';
 import DateRangeIcon from '@material-ui/icons/DateRange';
 import CalendarViewDayIcon from '@material-ui/icons/CalendarViewDay';
-
+import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
+import { Dropdown } from 'react-bootstrap';
 import firebase from "firebase"
 import { db } from "../firebase"
 import InputOptions from './InputOptions'
@@ -83,7 +84,26 @@ function Feed() {
                         title="Write article" color="#f5987e" />
                 </div>
             </div>
-            <hr className="feed__horizontal"/> <span>Sort by: Recent</span>
+            <div className="feed__separationLine">
+                <hr className="feed__horizontal" /> 
+                <span className="feed__sorts">
+                    <span className="feed__sort">
+                        Sort by:
+                    </span>
+                    <Dropdown>
+                        <Dropdown.Toggle variant="success" id="dropdown-basic" className="feed__dropDown">
+                            Recent
+                        </Dropdown.Toggle>
+
+                        <Dropdown.Menu>
+                            <Dropdown.Item href="#/action-1">Top</Dropdown.Item>
+                            <Dropdown.Item href="#/action-2">Recent</Dropdown.Item>
+                        </Dropdown.Menu>
+                    </Dropdown>
+
+                </span>
+            </div>
+
             {/* Posts */}
             <div className="feed__posts">
                 {/* use uuid for the key  npm i react-flip-move*/}
