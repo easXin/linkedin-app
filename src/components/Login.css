@@ -67,7 +67,6 @@ div.app {
   border-radius: 5px;
   border-radius: 30px;
   border: none;
- 
 }
 
 .login > form > button:hover {
@@ -97,4 +96,8 @@ div.app {
   margin-top: -24px;
   font-size: 14px;
   color: #d11124;
+}
+
+.login__join:hover {
+  text-decoration: none;
 }

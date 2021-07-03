@@ -5,7 +5,7 @@ import ImageIcon from '@material-ui/icons/Image';
 import YouTubeIcon from '@material-ui/icons/YouTube';
 import DateRangeIcon from '@material-ui/icons/DateRange';
 import CalendarViewDayIcon from '@material-ui/icons/CalendarViewDay';
-import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
+//import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import { Dropdown } from 'react-bootstrap';
 import firebase from "firebase"
 import { db } from "../firebase"
@@ -98,8 +98,10 @@ function Feed() {
                         </Dropdown.Toggle>
 
                         <Dropdown.Menu>
-                            <Dropdown.Item onClick={e => setSortOption("top")}>Top</Dropdown.Item>
-                            <Dropdown.Item onClick={e => setSortOption("recent")}>Recent</Dropdown.Item>
+                            {/* <Dropdown.Item onClick={e => setSortOption("top")}>Top</Dropdown.Item>
+                            <Dropdown.Item onClick={e => setSortOption("recent")}>Recent</Dropdown.Item> */}
+                            <Dropdown.Item >Top</Dropdown.Item>
+                            <Dropdown.Item>Recent</Dropdown.Item>
                         </Dropdown.Menu>
                     </Dropdown>
 

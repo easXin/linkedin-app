@@ -10,16 +10,17 @@ import "./Login.css"
 function Login() {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
-    const [errorEmail, setErrorEmail] = useState("")
-    const [errorPassword, setErrorPassword] = useState("")
+    // const [errorEmail, setErrorEmail] = useState("")
+    // const [errorPassword, setErrorPassword] = useState("")
 
     const dispatch = useDispatch()
     const history = useHistory();
 
-    const loginToApp = (e) => {
+    const loginToApp = async (e) => {
         e.preventDefault();
-        auth.signInWithEmailAndPassword(email, password)
+        await auth.signInWithEmailAndPassword(email, password)
             .then(userAuth => {
+                console.log("xxx =>", userAuth)
                 dispatch(login({
                     email: userAuth.user.email,
                     uid: userAuth.user.uid,
@@ -29,17 +30,16 @@ function Login() {
             })
             .catch(error => alert(error));
         history.push("/")
-        return true;
     };
 
-    const removeErrEmail = () => {
-        if (email)
-            setErrorEmail("")
-    }
-    const removeErrPassword = () => {
-        if (password)
-            setErrorPassword("")
-    }
+    // const removeErrEmail = () => {
+    //     if (email)
+    //         setErrorEmail("")
+    // }
+    // const removeErrPassword = () => {
+    //     if (password)
+    //         setErrorPassword("")
+    // }
     return (
         <div className="login">
             <img
@@ -47,17 +47,19 @@ function Login() {
                 alt="LinkedIn logo"
             />
             {/* https://stackoverflow.com/questions/38301774/how-to-do-floating-of-labels-in-css */}
+
             <form className="login__form">
                 <h1>Sign in</h1>
                 <p>Stay updated on your professional world</p>
+
                 <input type="text" placeholder="Email or Phone"
-                    value={email} onChange={e => setEmail(e.target.value)} onBlur={removeErrEmail} />
-                {errorEmail && <p className="login__err">{errorEmail}</p>}
+                    value={email} onChange={e => setEmail(e.target.value)} />
+                {/* {errorEmail && <p className="login__err">{errorEmail}</p>} */}
 
                 <input type="password" placeholder="Password"
-                    value={password} onChange={e => setPassword(e.target.value)} onBlur={removeErrPassword} />
+                    value={password} onChange={e => setPassword(e.target.value)} />
 
-                {errorPassword && <p className="login__err">{errorPassword}</p>}
+                {/* {errorPassword && <p className="login__err">{errorPassword}</p>} */}
 
                 <div className="login__passwordReset">
                     <span>Forgot password?</span>
@@ -68,7 +70,7 @@ function Login() {
             <p>
                 New to LinkedIn?
                 <span className="login__register">
-                    <Link to="/register"> Join now</Link>
+                    <Link to="/register" className="login__join"> Join now</Link>
                 </span>
             </p>
         </div>

@@ -85,6 +85,7 @@
 
 .feed__sort {
   color: rgba(0, 0, 0, 0.486);
+  margin-left: -5px;
 }
 .feed__dropDown {
   color: black !important;
@@ -116,11 +117,8 @@ feed__dropDown:focus {
   box-shadow: none !important;
 }
 
-.dropdown-item:focus {
-  border-left: 2px solid darkgreen;
-}
-
 .dropdown-item:hover {
   background-color: whitesmoke;
+  border-left: 2px solid darkgreen;
   color: black;
 }

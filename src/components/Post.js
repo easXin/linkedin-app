@@ -4,7 +4,7 @@ import ChatOutlinedIcon from '@material-ui/icons/ChatOutlined';
 import ShareOutlinedIcon from '@material-ui/icons/ShareOutlined';
 import SendOutlinedIcon from '@material-ui/icons/SendOutlined';
 import { Avatar } from '@material-ui/core'
-import MoreHorizSharpIcon from '@material-ui/icons/MoreHorizSharp';
+// import MoreHorizSharpIcon from '@material-ui/icons/MoreHorizSharp';
 import InputOptions from './InputOptions'
 import "./Post.css"
 

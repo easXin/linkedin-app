@@ -9,8 +9,8 @@ import NotificationsIcon from '@material-ui/icons/Notifications';
 import { useDispatch } from "react-redux"
 import { useHistory } from "react-router-dom";
 import { auth } from "../firebase"
-import { useSelector } from 'react-redux';
-import { selectUser, logout } from '../features/userSlice';
+// import { useSelector } from 'react-redux';
+import { logout } from '../features/userSlice';
 import HeaderOption from './HeaderOption';
 
 import "./Header.css"
@@ -22,7 +22,7 @@ const LinkedInLogo = "https://image.flaticon.com/icons/png/512/174/174857.png"
 function Header() {
     const dispatch = useDispatch()
     const history = useHistory()
-    const user = useSelector(selectUser);
+    // const user = useSelector(selectUser);
 
     const logoutOfApp = (e) => {
         e.preventDefault();

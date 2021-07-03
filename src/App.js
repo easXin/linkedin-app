@@ -19,6 +19,7 @@ function App() {
 
   useEffect(() => {
     // listen to auth change
+    console.table(user)
     auth.onAuthStateChanged(userAuth => {
       if (userAuth) {
         // user is logged in
